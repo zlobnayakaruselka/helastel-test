@@ -1,0 +1,10 @@
+version: '2.2'
+
+services:
+    percona:
+        container_name: percona
+        image: percona:latest
+        environment:
+            - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+        ports:
+            - "${PERCONA_PORT:-3380}:3306"

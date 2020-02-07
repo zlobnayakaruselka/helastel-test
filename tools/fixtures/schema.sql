@@ -1,0 +1,23 @@
+DROP DATABASE IF EXISTS test;
+CREATE DATABASE test;
+
+use test;
+DROP TABLE IF EXISTS book;
+CREATE TABLE book (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL UNIQUE
+);
+
+DROP TABLE IF EXISTS author;
+CREATE TABLE author (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL UNIQUE
+);
+
+DROP TABLE IF EXISTS authorship;
+CREATE TABLE authorship (
+    book_id INT UNSIGNED NOT NULL,
+    author_id INT UNSIGNED NOT NULL,
+    constraint book_author
+        unique (book_id, author_id)
+);
