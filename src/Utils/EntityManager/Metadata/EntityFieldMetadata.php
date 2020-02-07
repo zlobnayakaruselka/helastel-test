@@ -43,23 +43,17 @@ class EntityFieldMetadata
      */
     private $reflectionPropertyClass;
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return bool
-     */
     public function isPrimaryKey(): bool
     {
         return $this->isPrimaryKey;
     }
 
-    public function load($entityName, $metadata)
+    public function load($entityName, $metadata): void
     {
         foreach ($metadata as $name => $value) {
             if (property_exists($this, $name)) {
@@ -73,7 +67,7 @@ class EntityFieldMetadata
         $this->reflectionPropertyClass = $this->reflectionProperty->getDeclaringClass()->getName();
     }
 
-    public function setValueFromRow(StorageFactory $storageFactory, $entity, array $row)
+    public function setValueFromRow(StorageFactory $storageFactory, $entity, array $row): void
     {
         $this->checkEntityInstance($entity);
 

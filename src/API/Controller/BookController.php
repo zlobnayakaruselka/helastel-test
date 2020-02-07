@@ -66,6 +66,6 @@ class BookController
     {
         $books = $this->bookStorage->findBooksWithAuthorsCount($authorsCount);
 
-        return $this->responseBuilder->buildBookCollectionResponse($books);
+        return $this->responseBuilder->buildBookCollectionResponse($books, $authorsCount);
     }
 }

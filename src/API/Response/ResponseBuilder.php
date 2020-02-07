@@ -5,6 +5,8 @@ namespace App\API\Response;
 use App\API\Api;
 use App\Library\Collection\AuthorCollection;
 use App\Library\Collection\BookCollection;
+use App\Library\Entity\Author;
+use App\Library\Entity\Book;
 use App\Utils\EntityManager\Exception\EntityNotFoundException;
 
 class ResponseBuilder
@@ -12,6 +14,7 @@ class ResponseBuilder
     public function buildAuthorCollectionResponse(AuthorCollection $authorCollection): Response
     {
         $responseData = [];
+        /** @var Author $author */
         foreach ($authorCollection->getIterator() as $author) {
             $responseData[] = ['id' => $author->getId(), 'name' => $author->getName()];;
         }
@@ -22,6 +25,7 @@ class ResponseBuilder
     public function buildBookCollectionResponse(BookCollection $bookCollection, ?int $authorsCount = null): Response
     {
         $responseData = [];
+        /** @var Book $book */
         foreach ($bookCollection->getIterator() as $book) {
             $bookData = ['id' => $book->getId(), 'name' => $book->getName()];
             if ($authorsCount !== null) {

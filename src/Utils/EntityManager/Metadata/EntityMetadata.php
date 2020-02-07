@@ -59,7 +59,7 @@ class EntityMetadata
     /**
      * @return EntityFieldMetadata[]
      */
-    public function getFields()
+    public function getFields(): array
     {
         return $this->fields;
     }
@@ -114,7 +114,6 @@ class EntityMetadata
 
     public function setCollection(string $collection): void
     {
-
         $this->collection = $collection;
     }
 }

@@ -42,7 +42,7 @@ class Api
         }
     }
 
-    private function setHeaders(int $status)
+    private function setHeaders(int $status): void
     {
         $status = array_key_exists($status, self::HTTP_STATUS_MAP) ? $status : self::HTTP_INTERNAL_SERVER_ERROR;
         header("HTTP/1.1 $status " . self::HTTP_STATUS_MAP[$status]);

@@ -14,7 +14,7 @@ class EntityMetadataFactory
         return $this->cache[$entityName];
     }
 
-    public function createEmptyEntityMetadata()
+    public function createEmptyEntityMetadata(): EntityMetadata
     {
         return new EntityMetadata();
     }
